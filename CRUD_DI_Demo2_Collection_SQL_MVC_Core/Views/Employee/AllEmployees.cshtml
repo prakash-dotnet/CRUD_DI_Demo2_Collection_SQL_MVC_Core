@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CRUD_DI_Demo2_Collection_SQL_MVC_Core.Models.Employee>
+<h1>All Employee Details</h1>
+<br />
+
+<a asp-action="AddEmployee" asp-Controller="Employee">Insert Employee </a>
+
+<div>
+    <table class="table">
+        <thead>
+		<tr>
+			<th>Employ Id</th>
+			<th>Name</th>
+			<th>Department</th>
+			<th>Salary</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var emp in Model)
+		{
+			<tr>
+				<td>@emp.Id</td>
+				<td>@emp.Name</td>
+				<td>@emp.Department</td>
+				<td>@emp.Salary</td>
+
+				<td>
+					<a asp-action="Edit" asp-routeid="@emp.Id">Edit</a> |
+					<a asp-action="Details" asp-routeid="@emp.Id">Details</a> |
+					<a asp-action="Delete" asp-routeid="@emp.Id">Delete</a>
+					<!-- <a asp-action="Delete" asp-routeid="@emp.Id" onclick="return confirm('are you sure to
+					delete?')">Delete</a> -->
+				</td>
+			</tr>
+		}
+    </tbody>
+    </table>
+
+</div>
